@@ -1,0 +1,218 @@
+:root {
+  --th-primary: #4f46e5;
+  --th-primary-dark: #4338ca;
+  --th-accent: #06b6d4;
+  --th-bg: #f4f6fb;
+  --th-surface: #ffffff;
+  --th-text: #0f172a;
+  --th-muted: #64748b;
+  --th-border: #e2e8f0;
+  --th-sidebar: #0b1220;
+  --th-sidebar-soft: #111c33;
+  --th-radius: 14px;
+  --th-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+
+  /* 组件层语义别名：统一指向基础色板，避免各页面直接依赖色值 */
+  --brand-primary: var(--th-primary);
+  --brand-accent: var(--th-accent);
+  --app-bg: var(--th-bg);
+  --app-border: var(--th-border);
+  --text-strong: var(--th-text);
+  --text-muted: var(--th-muted);
+  --sidebar-bg: var(--th-sidebar);
+  --shadow-soft: var(--th-shadow);
+  --font-mono: 'Cascadia Code', 'JetBrains Mono', Consolas, 'Courier New', monospace;
+
+  --el-color-primary: #4f46e5;
+  --el-color-primary-light-3: #7c73ee;
+  --el-color-primary-light-5: #a5a0f2;
+  --el-color-primary-light-7: #cfccf7;
+  --el-color-primary-light-8: #e2e0fa;
+  --el-color-primary-light-9: #f0effd;
+  --el-color-primary-dark-2: #3f38b7;
+  --el-border-radius-base: 9px;
+  --el-border-radius-small: 7px;
+  --el-font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--el-font-family);
+  color: var(--th-text);
+  background: var(--th-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(79, 70, 229, 0.18);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 首屏加载占位，Vue 挂载后被替换 */
+.boot-loading {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: radial-gradient(circle at 50% 40%, #172554 0%, #0b1220 65%);
+  color: #cbd5e1;
+  font-family: var(--el-font-family);
+}
+
+.boot-logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  box-shadow: 0 12px 40px rgba(79, 70, 229, 0.45);
+  animation: boot-pulse 1.6s ease-in-out infinite;
+}
+
+.boot-text {
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+
+@keyframes boot-pulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-5px);
+    opacity: 0.82;
+  }
+}
+
+/* 通用布局 */
+.page-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.surface-card {
+  background: var(--th-surface);
+  border: 1px solid var(--th-border);
+  border-radius: var(--th-radius);
+  box-shadow: var(--th-shadow);
+}
+
+.mono {
+  font-family: 'Cascadia Code', 'JetBrains Mono', Consolas, 'Courier New', monospace;
+  font-variant-ligatures: none;
+}
+
+.muted {
+  color: var(--th-muted);
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #94a3b8;
+  flex: none;
+}
+
+.status-dot.is-on {
+  background: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.14);
+}
+
+.status-dot.is-off {
+  background: #cbd5e1;
+}
+
+/* Element Plus 细节统一 */
+.el-button {
+  font-weight: 500;
+}
+
+.el-card,
+.el-dialog,
+.el-message-box {
+  border-radius: var(--th-radius);
+}
+
+.el-tabs__item {
+  font-weight: 600;
+}
+
+.el-table {
+  --el-table-header-bg-color: #f8fafc;
+  --el-table-header-text-color: #475569;
+  --el-table-row-hover-bg-color: #f8fafc;
+}
+
+.el-table th.el-table__cell {
+  font-weight: 600;
+}
+
+.el-empty {
+  --el-empty-description-margin-top: 12px;
+}
+
+/* 页面切换动效 */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+@media (max-width: 768px) {
+  .el-message-box {
+    width: calc(100vw - 32px) !important;
+  }
+}

@@ -1,0 +1,34 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 构建产物
+dist/
+*.tsbuildinfo
+
+# Windows 打包中间产物与输出
+.build/
+release/
+packaging/launcher/BuildInfo.cs
+
+# 运行时数据（SQLite）
+packages/backend/data/*.db
+packages/backend/data/*.db-shm
+packages/backend/data/*.db-wal
+
+# 环境变量与日志
+.env
+.env.local
+*.log
+logs/
+
+# 编辑器与系统文件
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 测试与覆盖率
+coverage/

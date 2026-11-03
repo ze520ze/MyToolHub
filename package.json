@@ -1,0 +1,20 @@
+{
+  "name": "mytoolhub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MyToolHub 个人工具集：可扩展的本地工具桌面应用",
+  "packageManager": "pnpm@8.15.9",
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
+  },
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "dev:backend": "pnpm --filter @mytoolhub/backend dev",
+    "dev:frontend": "pnpm --filter @mytoolhub/frontend dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "start": "pnpm --filter @mytoolhub/backend start",
+    "package:win": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-win.ps1"
+  }
+}
